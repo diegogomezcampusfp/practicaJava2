@@ -1,0 +1,63 @@
+BASE
+
+public abstract class Base{ //no puede ser instanciada
+   public String informar(String texto){
+      return "hola "+texto; 
+   } 
+}//cierra clase
+
+SUBCLASE
+
+public class Subclase1 extends Base{
+    private int unidades;
+    private float precio;
+    private boolean aprobado;
+    
+    //constructor
+    public Subclase1(int u, float p, boolean a){
+        this.unidades=u;
+        this.precio=p;
+        this.aprobado=a;
+    }
+    
+    //getters / setters
+    public void setUnidades(int unidades){
+        this.unidades=unidades;
+    }
+     public void setPrecio(float precio){
+        this.precio=precio;
+    }
+     public void setAprobado(boolean aprobado){
+        this.aprobado=aprobado;
+    }
+    
+    public int getUnidades(){
+        return this.unidades;
+    }
+    public float getPrecio(){
+        return this.precio;
+    }
+     public boolean getAprobado(){
+        return this.aprobado;
+    }
+    
+    
+}//cierra clase
+
+MAIN
+
+public class Main{
+    public static void main(String[] args){
+       // Base base1 = new Base(); //error porque no se puede instanciar una clase abstract
+       Subclase1 subclase1 = new Subclase1(100,9.95f,true);//constructor aunque no está definido
+       String mensaje=subclase1.informar("juan");
+       System.out.println(mensaje);
+      // subclase1.setUnidades(10);
+      // subclase1.setPrecio(7.95f);
+      // subclase1.setAprobado(true);
+       
+       System.out.println(subclase1.getUnidades());
+       System.out.println(subclase1.getPrecio());
+       System.out.println(subclase1.getAprobado());
+    }//cierra main
+}//cierra class
